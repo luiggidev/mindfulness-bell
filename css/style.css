@@ -3,6 +3,16 @@
   font-family: "Poppins", sans-serif;
 }
 
+:root {
+  --font-color: black;
+  --background-color: #fff6e6;
+  --secondary-background-color: #fffcf9;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -23,6 +33,12 @@
   justify-content: center;
 }
 
+h1 {
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+  color: var(--font-color);
+}
+
 .font-size-small {
   font-size: 1.2rem;
 }
@@ -35,16 +51,30 @@
 .font-size-large {
   font-size: 2.4rem;
 }
+.text-bold {
+  font-weight: bold;
+}
 
 .buddhism {
   margin-top: 3rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--secondary-background-color);
+  border-radius: 50%;
+}
+
+.bell {
+  margin-right: 0.5rem;
+}
+.bell-slash {
+  margin-left: 0.5rem;
 }
 
 .bell,
 .bell-slash {
-  margin-right: 1rem;
+  background-color: var(--secondary-background-color);
   padding: 1rem;
-  border: 2px rgb(121, 121, 121) solid;
+  border: 3px var(--font-color) solid;
+  border-radius: 10px;
 }
 
 button,
@@ -57,4 +87,62 @@ input[type="reset"] {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+}
+
+/* 
+
+button:hover {
+  background-color: orange;
+}
+
+button:focus {
+  background-color: red;
+}
+
+a {
+  color: orange;
+}
+
+a.button {
+  color: green;
+  text-decoration: none;
+}
+
+a:visited {
+  color: purple;
+}
+
+a:active {
+  color: blue;
+} 
+
+*/
+
+.countdown-text {
+  margin-top: 1rem;
+}
+
+footer {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  bottom: 3rem;
+  text-align: center;
+}
+
+footer div {
+  color: var(--secondary-color);
+  text-decoration-color: var(--secondary-color);
+  transition: ease-in 0.3s;
+}
+
+footer a {
+  color: var(--font-color);
+  text-decoration-color: var(--font-color);
+}
+
+a:visited {
+  color: var(--font-color);
 }
