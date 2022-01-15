@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.font-size-small {
+  font-size: 1.2rem;
+}
+.font-size {
+  font-size: 1.6rem;
+}
+.font-size-medium {
+  font-size: 1.8rem;
+}
+.font-size-large {
+  font-size: 2.4rem;
+}
+
+.buddhism {
+  margin-top: 3rem;
+}
+
+.bell,
+.bell-slash {
+  margin-right: 1rem;
+  padding: 1rem;
+  border: 2px rgb(121, 121, 121) solid;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
