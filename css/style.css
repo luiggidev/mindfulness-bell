@@ -20,6 +20,8 @@ body {
   flex-direction: column;
   text-align: center;
 }
+
+/* COLUMNS AND ROWS */
 .col {
   display: flex;
   flex-direction: column;
@@ -39,6 +41,7 @@ h1 {
   color: var(--font-color);
 }
 
+/* FONT SIZE */
 .font-size-small {
   font-size: 1.2rem;
 }
@@ -55,20 +58,13 @@ h1 {
   font-weight: bold;
 }
 
+/* ICONS */
 .buddhism {
   margin-top: 3rem;
   margin-bottom: 0.5rem;
   background-color: var(--secondary-background-color);
   border-radius: 50%;
 }
-
-.bell {
-  margin-right: 0.5rem;
-}
-.bell-slash {
-  margin-left: 0.5rem;
-}
-
 .bell,
 .bell-slash {
   background-color: var(--secondary-background-color);
@@ -77,9 +73,11 @@ h1 {
   border-radius: 10px;
 }
 
+/* BUTTONS / LINKS */
 button,
 input[type="submit"],
 input[type="reset"] {
+  display: flex;
   background: none;
   color: inherit;
   padding: 0;
@@ -87,41 +85,24 @@ input[type="reset"] {
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  padding: 0.5rem;
 }
-
-/* 
-
-button:hover {
-  background-color: orange;
+button img:hover {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
 }
-
 button:focus {
-  background-color: red;
+  outline: 3px dashed rgba(255, 0, 0, 0.2);
 }
-
-a {
-  color: orange;
-}
-
-a.button {
-  color: green;
-  text-decoration: none;
-}
-
 a:visited {
-  color: purple;
+  color: var(--font-color);
 }
 
-a:active {
-  color: blue;
-} 
-
-*/
-
+/* COUNTER */
 .countdown-text {
   margin-top: 1rem;
 }
 
+/* FOOTER */
 footer {
   position: absolute;
   margin-left: auto;
@@ -131,18 +112,12 @@ footer {
   bottom: 3rem;
   text-align: center;
 }
-
 footer div {
   color: var(--secondary-color);
   text-decoration-color: var(--secondary-color);
   transition: ease-in 0.3s;
 }
-
 footer a {
   color: var(--font-color);
   text-decoration-color: var(--font-color);
-}
-
-a:visited {
-  color: var(--font-color);
 }
