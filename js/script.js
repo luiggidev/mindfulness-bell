@@ -3,54 +3,79 @@ const longBell = new Audio("bells/longBell.mp3");
 const timerContent = document.getElementById("timer");
 
 // let isBellEnabled = true;
-// let shortLoaded = false;
-// let LongLoaded = false;
 let isdebug = true;
+let intervals = [];
 
 function logFunctionName(arguments) {
-  let functionName = (arguments) ? 'Function: ' + arguments.callee.name + '() ran' : 'Error, logFunctionName() arguments not present';
-  console.log(functionName);
+  if (isdebug){
+    let functionName = (arguments) ? 'Function: ' + arguments.callee.name + '() ran' : 'Error, logFunctionName() arguments not present';
+    console.log(functionName);
+  }
 }
 
+//! this will be a user defined value later on
 function setFutureTime() {
+  logFunctionName(arguments);
+
   timeToAddInMinutes = 15;
   timeToAddInSeconds = 7;
   future = new Date();
-  future.setMinutes( future.getMinutes() + timeToAddInMinutes );
-  // future.setSeconds( future.getSeconds() + timeToAddInSeconds );
+  // future.setMinutes( future.getMinutes() + timeToAddInMinutes );
+  future.setSeconds( future.getSeconds() + timeToAddInSeconds );
 }
 
-function strikeBell() {
-  if (isdebug){
-    logFunctionName(arguments);
-    console.log(shortBell.duration);
-  }
-  shortBell.volume = 0.1;
-  shortBell.play();
+function strikeBell(bell) {
+  logFunctionName(arguments);
+  // console.log(bell.duration);
+
+  bell.volume = 0.001;
+  bell.play();
 }
 
 function startBell() {
-  if (isdebug){
-    logFunctionName(arguments);
+  logFunctionName(arguments);
+
+  if (intervals.length == 0){
+    setFutureTime();
+    myInterval = setInterval('updateTimer()', 1000);
+    intervals.push(myInterval); //in case the first check fails
+    setTimeout(strikeBell(shortBell), 1000);
+
+  } else {
+    console.log('else catch')
+    pauseBell()
+    
+    setFutureTime();
+    myInterval = setInterval('updateTimer()', 1000);
+    intervals.push(myInterval); //in case the first check fails
+    setTimeout(strikeBell(shortBell), 1000);
   }
-  setFutureTime();
-  myInterval = setInterval('updateTimer()', 1000);
-  setTimeout(strikeBell, 1000);
 }
 
 function pauseBell() {
-  if (isdebug){
-    logFunctionName(arguments);
+  logFunctionName(arguments);
+
+  if ( intervals.length > 0 ){
+
+    for(interval in intervals) {
+      clearInterval(intervals[interval]);
+      console.log(intervals[interval]);
+    }
+    timerContent.innerHTML = '';
+    shortBell.pause();
+    longBell.pause();
+    shortBell.currentTime = 0;
+    longBell.currentTime = 0;
+    intervals = [];
+
+  } else if( intervals.length == 0 && isdebug ) {
+    console.log('Catch, there is no interval set yet to pause')
   }
-  shortBell.pause();
-  clearInterval(myInterval);
-  timerContent.innerHTML = '';
 }
 
 function updateTimer() {
-  if (isdebug){
-    logFunctionName(arguments);
-  }
+  logFunctionName(arguments);
+
   now = new Date();
   diff = future - now;
 
@@ -74,6 +99,6 @@ function updateTimer() {
   if( m >= 59 ){
     timerContent.innerHTML = timerZero;
     setFutureTime();
-    strikeBell();
+    strikeBell(shortBell);
   }
 }
