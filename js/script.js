@@ -3,7 +3,7 @@ const longBell = new Audio("bells/longBell.mp3");
 const timerContent = document.getElementById("timer");
 
 // let isBellEnabled = true;
-let isDebug = false;
+let isDebug = true;
 let intervals = [];
 
 function logFunctionName(arguments) {
@@ -32,25 +32,29 @@ function strikeBell(bell) {
   bell.play();
 }
 
+function startBellCheck() {
+  logFunctionName(arguments);
+  // If no interval is set 
+  if (intervals.length == 0){
+    startBell();
+  } 
+  // If interval is set 
+  else {
+    if(isDebug){
+      console.log('else catch');
+    }
+    pauseBell();
+    startBell();
+  }
+}
+
 function startBell() {
   logFunctionName(arguments);
 
-  if (intervals.length == 0){
-    setFutureTime();
-    myInterval = setInterval('updateTimer()', 1000);
-    intervals.push(myInterval); //in case the first check fails
-    setTimeout(strikeBell(shortBell), 1000);
-
-  } else {
-    if(isDebug){
-      console.log('else catch')
-    }
-    pauseBell()
-    setFutureTime();
-    myInterval = setInterval('updateTimer()', 1000);
-    intervals.push(myInterval); //in case the first check fails
-    setTimeout(strikeBell(shortBell), 1000);
-  }
+  setFutureTime();
+  myInterval = setInterval('updateTimer()', 1000);
+  intervals.push(myInterval); //in case the first check fails
+  setTimeout(strikeBell(shortBell), 1000);
 }
 
 function pauseBell() {
