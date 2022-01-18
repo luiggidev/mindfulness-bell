@@ -3,11 +3,11 @@ const longBell = new Audio("bells/longBell.mp3");
 const timerContent = document.getElementById("timer");
 
 // let isBellEnabled = true;
-let isdebug = true;
+let isDebug = false;
 let intervals = [];
 
 function logFunctionName(arguments) {
-  if (isdebug){
+  if (isDebug){
     let functionName = (arguments) ? 'Function: ' + arguments.callee.name + '() ran' : 'Error, logFunctionName() arguments not present';
     console.log(functionName);
   }
@@ -42,9 +42,10 @@ function startBell() {
     setTimeout(strikeBell(shortBell), 1000);
 
   } else {
-    console.log('else catch')
+    if(isDebug){
+      console.log('else catch')
+    }
     pauseBell()
-    
     setFutureTime();
     myInterval = setInterval('updateTimer()', 1000);
     intervals.push(myInterval); //in case the first check fails
@@ -59,7 +60,6 @@ function pauseBell() {
 
     for(interval in intervals) {
       clearInterval(intervals[interval]);
-      console.log(intervals[interval]);
     }
     timerContent.innerHTML = '';
     shortBell.pause();
@@ -68,7 +68,7 @@ function pauseBell() {
     longBell.currentTime = 0;
     intervals = [];
 
-  } else if( intervals.length == 0 && isdebug ) {
+  } else if( intervals.length == 0 && isDebug ) {
     console.log('Catch, there is no interval set yet to pause')
   }
 }
