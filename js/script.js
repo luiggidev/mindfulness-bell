@@ -26,7 +26,8 @@ function setFutureTime() {
 
 function strikeBell(bell) {
   logFunctionName(arguments);
-  // console.log(bell.duration);
+  // * Referece for use of more then one bell
+  //! console.log(bell.duration);
 
   bell.volume = 0.001;
   bell.play();
