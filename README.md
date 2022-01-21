@@ -1,5 +1,4 @@
 ## TODO
-
 -Separate each CSS into each component file name
 -Breakdown tasks, test props, check which components will need state managent..
 Check React Examples of timers and countdown alarms
