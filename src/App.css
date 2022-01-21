@@ -64,7 +64,10 @@ h1 {
   margin-bottom: 0.5rem;
   background-color: var(--secondary-background-color);
   border-radius: 50%;
+  height: 100px; 
+  width: 100px;
 }
+
 .bell,
 .bell-slash {
   background-color: var(--secondary-background-color);
