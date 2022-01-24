@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 class Timer extends Component {
     render() {
         return (
-            <div id="timer"></div>
+            <div>
+                <h3>{this.props.title}</h3>
+                <div>{this.props.date}</div>
+                <div>{this.props.futureDate}</div>
+            </div>
         );
     }
 }
