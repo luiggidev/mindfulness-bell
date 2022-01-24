@@ -6,12 +6,10 @@ class Header extends Component {
         <div>
             <img
                 src="/images/buddhism.svg"
-                //!add this to css
-                // style="height: 100px; width: 100px"
                 alt="buddhism symboll"
                 className="buddhism"
             />
-            <h1 className="font-size-large">Mindfulness Bell</h1> 
+            <h1>Mindfulness Bell</h1> 
         </div>
 
         );
