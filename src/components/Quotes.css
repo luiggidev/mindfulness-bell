@@ -1,0 +1,10 @@
+#quote-block {
+    margin-top: 2rem;
+}
+#quote {
+    font-style: italic;
+    display: inline;
+}
+#author {
+    display: inline;
+}
