@@ -1,9 +1,5 @@
 ## TODO
 -Separate each CSS into each component file name
--Breakdown tasks, test props, check which components will need state managent..
-Check React Examples of timers and countdown alarms
--Start incorporating state management to the timer using Hooks or other methods if it does not work maybe use Recoil
-    https://recoiljs.org/
 -After that is tested for the basic example start incorporating the advanced features
 
 

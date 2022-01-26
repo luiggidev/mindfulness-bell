@@ -7,20 +7,22 @@ class Timer extends Component {
         this.state = { 
             date: new Date(),
             title: 'Timer component',
-            futureDate: new Date()
+            futureDate: new Date(),
+            isBellEnabled: false
         };
     }
 
     isDebug = true;
     bell = new Audio("bells/shortBell.mp3");
-    isBellEnabled = false;
 
     handleStartClick = () => {
         if(this.isDebug) {
             console.log('handleStartClick');
         }
 
-        this.isBellEnabled = true;
+        this.setState(prevState => ({
+            isBellEnabled: true
+        }));
         this.setFutureTime();
         this.bell.volume = 0.05;
     }
@@ -30,7 +32,10 @@ class Timer extends Component {
             console.log('handleEndClick');
         }
 
-        this.isBellEnabled = false;
+        this.setState(prevState => ({
+            isBellEnabled: false
+        }));
+
         console.log("End Bell");
         console.log()
         this.bell.pause();
@@ -83,7 +88,7 @@ class Timer extends Component {
             date: new Date()
         });
 
-        if( this.isBellEnabled && this.state.date > this.state.futureDate) {
+        if( this.state.isBellEnabled && this.state.date > this.state.futureDate) {
             this.strikeBell()
         }
     }
@@ -96,8 +101,8 @@ class Timer extends Component {
                     <div className="font-size-small">
                         <strong>Debug mode: {this.state.title} </strong>
                         <div>Current date: {this.state.date.toLocaleTimeString()}</div>
-                        {this.isBellEnabled && <div>Next Strike at: {this.state.futureDate.toLocaleTimeString()}</div> }
-                        {!this.isBellEnabled && <div>Bell disabled</div> }
+                        {this.state.isBellEnabled && <div>Next Strike at: {this.state.futureDate.toLocaleTimeString()}</div> }
+                        {!this.state.isBellEnabled && <div>Bell disabled</div> }
                         
                     </div>
                 }
