@@ -42,6 +42,19 @@ class Timer extends Component {
         this.bell.currentTime = 0;
     }
 
+    handleButtonClick = () => {
+        if(this.isDebug) {
+            console.log('handleStartClick');
+        }
+
+        if(this.state.isBellEnabled == false){
+            this.handleStartClick();
+        } else {
+            this.handleEndClick();
+        }
+ 
+    }
+
     strikeBell() {
         if(this.isDebug) {
             console.log('strikeBell');
@@ -59,7 +72,7 @@ class Timer extends Component {
         const future = new Date();
         // const timeToAddInMinutes = 15;
         // future.setMinutes( future.getMinutes() + timeToAddInMinutes );
-        const timeToAddInSeconds = 6;
+        const timeToAddInSeconds = 4;
         future.setSeconds( future.getSeconds() + timeToAddInSeconds )
 
         this.setState({
@@ -96,7 +109,7 @@ class Timer extends Component {
     render() {
         return(
             <div>
-                <Buttons handleStartClick={this.handleStartClick} handleEndClick={this.handleEndClick}/>
+                <Buttons buttonState={this.state.isBellEnabled} handleButtonClick={this.handleButtonClick}/>
                 {this.isDebug &&
                     <div className="font-size-small">
                         <strong>Debug mode: {this.state.title} </strong>

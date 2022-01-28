@@ -70,10 +70,21 @@ h1 {
 
 .bell,
 .bell-slash {
-  background-color: var(--secondary-background-color);
-  padding: 1rem;
-  border: 3px var(--font-color) solid;
-  border-radius: 10px;
+  height: 80px;
+}
+.bell:hover {
+  animation: shake 1s;
+  animation-iteration-count: infinite;
+}
+.bell-slash:hover {
+  animation: shake 1s;
+  animation-iteration-count: 1;
+}
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(4deg); }
+  50% { transform: rotate(-4deg); }
+  100% { transform: rotate(0); }
 }
 
 /* BUTTONS / LINKS */
@@ -90,9 +101,7 @@ input[type="reset"] {
   outline: inherit;
   padding: 0.5rem;
 }
-button img:hover {
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
-}
+
 button:focus {
   outline: 3px dashed rgba(255, 0, 0, 0.2);
 }
