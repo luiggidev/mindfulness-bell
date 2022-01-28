@@ -11,7 +11,7 @@ class Timer extends Component {
             isBellEnabled: false
         };
     }
-
+    
     isDebug = false;
     bell = new Audio("bells/shortBell.mp3");
 
