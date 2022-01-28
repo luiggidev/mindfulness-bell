@@ -12,7 +12,7 @@ class Timer extends Component {
         };
     }
 
-    isDebug = true;
+    isDebug = false;
     bell = new Audio("bells/shortBell.mp3");
 
     handleStartClick = () => {

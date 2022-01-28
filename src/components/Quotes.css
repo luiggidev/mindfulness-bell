@@ -1,5 +1,7 @@
 #quote-block {
     margin-top: 2rem;
+    padding: 2rem;
+    max-width: 650px;
 }
 #quote {
     font-style: italic;

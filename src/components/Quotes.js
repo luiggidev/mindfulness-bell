@@ -17,7 +17,7 @@ class Quotes extends Component {
     render() {
         return (
         <div id="quote-block">
-            <blockquote id="quote"></blockquote>
+            <div id="quote"></div>
             <div id="author"> - Buddha</div>
         </div>
         );
