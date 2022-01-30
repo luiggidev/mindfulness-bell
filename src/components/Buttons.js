@@ -15,7 +15,7 @@ class Buttons extends Component {
                     
                 </div>
                 <div id="timer"></div>
-                <ProgressBar />
+                {/* <ProgressBar /> */}
             </div>
         );
     }

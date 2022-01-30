@@ -5,14 +5,14 @@ class Timer extends Component {
     constructor(props){
         super(props);
         this.state = { 
-            date: new Date(),
             title: 'Timer component',
+            date: new Date(),
             futureDate: new Date(),
             isBellEnabled: false
         };
     }
     
-    isDebug = false;
+    isDebug = true;
     bell = new Audio("bells/shortBell.mp3");
 
     handleStartClick = () => {
@@ -20,9 +20,9 @@ class Timer extends Component {
             console.log('handleStartClick');
         }
 
-        this.setState(prevState => ({
+        this.setState({
             isBellEnabled: true
-        }));
+        });
         this.setFutureTime();
         this.bell.volume = 0.05;
     }
@@ -32,12 +32,10 @@ class Timer extends Component {
             console.log('handleEndClick');
         }
 
-        this.setState(prevState => ({
+        this.setState({
             isBellEnabled: false
-        }));
-
+        });
         console.log("End Bell");
-        console.log()
         this.bell.pause();
         this.bell.currentTime = 0;
     }
@@ -68,16 +66,12 @@ class Timer extends Component {
         if(this.isDebug) {
             console.log('setFutureTime');
         }
-
         const future = new Date();
-        // const timeToAddInMinutes = 15;
-        // future.setMinutes( future.getMinutes() + timeToAddInMinutes );
-        const timeToAddInSeconds = 4;
-        future.setSeconds( future.getSeconds() + timeToAddInSeconds )
+        // future.setMinutes( future.getMinutes() + parseInt(this.props.intervalValue, 10) )
+        future.setSeconds( future.getSeconds() + parseInt(this.props.intervalValue, 10) )
 
         this.setState({
             futureDate: future
-            // futureDate: future.setMinutes( future.getMinutes() + timeToAddInMinutes )
         });
     }
 
