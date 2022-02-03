@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '4'
+      value: '3'
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,9 +29,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <AdvancedOptions intervalValue={this.state.value} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
+        {/* <AdvancedOptions intervalValue={this.state.value} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/> */}
         <Timer intervalValue={this.state.value}/>
-        <Quotes />
+        {/* <Quotes /> */}
         <Footer />
       </div>
     );
