@@ -67,8 +67,8 @@ class Timer extends Component {
             console.log('setFutureTime');
         }
         const future = new Date();
-        future.setMinutes( future.getMinutes() + parseInt(this.props.intervalValue, 10) )
-        // future.setSeconds( future.getSeconds() + parseInt(this.props.intervalValue, 10) )
+        // future.setMinutes( future.getMinutes() + parseInt(this.props.intervalValue, 10) )
+        future.setSeconds( future.getSeconds() + parseInt(this.props.intervalValue, 10) )
 
         this.setState({
             futureDate: future
@@ -144,7 +144,7 @@ class Timer extends Component {
                         }
                     </div>
                 }
-                
+
                 { this.state.isBellEnabled && 
                     <div>
                         {this.state.remaining}
