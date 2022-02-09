@@ -6,7 +6,8 @@ Recurrent bell strikes to remain mindful/concentrated on the task at hand.
 
 ## Todo
 - Simplify design, no bell icons, less styles
-- After that is tested for the basic example start incorporating the advanced features
+- Use Tailwind CSS.
+- Add Typescript support and refactor to be used with ReactJS.
 
 ### Maybe
 - Add round progress bar:
