@@ -123,31 +123,20 @@ class Timer extends Component {
 
     render() {
         return(
-            <div className="timer-wrapper">
+            <div className="timer-wrapper flex justify-center ">
+                <div className="p-6">
                 <Buttons buttonState={this.state.isBellEnabled} handleButtonClick={this.handleButtonClick}/>
-                {this.isDebug &&
-                    <div>
-                        <strong>Debug mode: {this.state.title} </strong>
-                        <div>Current date: {this.state.date.toLocaleTimeString()}</div>
-
-                        { this.state.isBellEnabled && 
-                            <div>
-                                Next Strike at: {this.state.futureDate.toLocaleTimeString()}
+                    { !this.state.isBellEnabled && 
+                        <div className='grid justify-items-start mt-3'>
+                            <div className='text-xl'>
+                                Bell disabled
                             </div> 
-                        }
-                    </div>
-                }
+                        </div> 
+                    }
 
-                { !this.state.isBellEnabled && 
-                    <div className='next-bell'>
-                        Bell disabled
-                    </div> 
-                }
-
-                { this.state.isBellEnabled && 
-                    <div >
-                        <div className="adv-options font-size-small"> 
-                            <div class="text-xl	">Advanced Options:</div>
+                    { this.state.isBellEnabled && 
+                        <div className="grid justify-items-start mt-3" >
+                            <div class="text-xl">Advanced Options:</div>
                             <div className='next-bell'>
                                 {this.state.remaining}
                             </div>   
@@ -159,14 +148,17 @@ class Timer extends Component {
                             <div>Number of Short bells:</div>
                             <div>Number of Long bells:</div>
                             <div>Strike Bell button</div>
-
-
                         </div>
-                    </div>
-                }
+                    }
 
-
-
+                    {   this.isDebug &&
+                        <div>
+                            <strong>Debug mode: {this.state.title} </strong>
+                            <div>Current date: {this.state.date.toLocaleTimeString()}</div>
+                            { this.state.isBellEnabled && <div>Next Strike at: {this.state.futureDate.toLocaleTimeString()}</div> }
+                        </div>
+                    }
+                </div>
             </div>
         );
     }

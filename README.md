@@ -5,8 +5,9 @@
 Recurrent bell strikes to remain mindful/concentrated on the task at hand.
 
 ## Todo
-- Simplify design, no bell icons, less styles
-- Use Tailwind CSS.
+- fix button moving when on/off
+- Clean timer file
+- add the rest of the adv functions
 - Add Typescript support and refactor to be used with ReactJS.
 
 ### Maybe
