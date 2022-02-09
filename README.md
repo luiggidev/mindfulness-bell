@@ -6,6 +6,7 @@ Recurrent bell strikes to remain mindful/concentrated on the task at hand.
 
 ## Todo
 - Clean timer file
+- Add Recoil to manage states
 - add the rest of the adv functions
 - Add Typescript support and refactor to be used with ReactJS.
 
