@@ -123,7 +123,7 @@ class Timer extends Component {
 
     render() {
         return(
-            <div className="timer-wrapper font-size-small">
+            <div className="timer-wrapper">
                 <Buttons buttonState={this.state.isBellEnabled} handleButtonClick={this.handleButtonClick}/>
                 {this.isDebug &&
                     <div>
