@@ -149,7 +149,7 @@ class Timer extends Component {
                     </div> 
                 }
 
-                { !this.state.isBellEnabled && 
+                { this.state.isBellEnabled && 
                     <div >
                         <div className="adv-options font-size-small"> 
                             <div>Advanced Options:</div>
