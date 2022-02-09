@@ -13,8 +13,9 @@ class Timer extends Component {
         };
     }
     
-    isDebug = true;
+    isDebug = false;
     bell = new Audio("bells/shortBell.mp3");
+    bellLong = new Audio("bells/longBell.mp3");
 
     handleStartClick = () => {
         if(this.isDebug) {
@@ -25,7 +26,7 @@ class Timer extends Component {
             isBellEnabled: true
         });
         this.setFutureTime();
-        this.bell.volume = 0.05;
+        this.bell.volume = 0.005;
     }
 
     handleEndClick = () => {
@@ -122,34 +123,47 @@ class Timer extends Component {
 
     render() {
         return(
-            <div className="timer-wrapper">
+            <div className="timer-wrapper font-size-small">
                 <Buttons buttonState={this.state.isBellEnabled} handleButtonClick={this.handleButtonClick}/>
                 {this.isDebug &&
-                    <div className="font-size-small">
-
+                    <div>
                         <strong>Debug mode: {this.state.title} </strong>
                         <div>Current date: {this.state.date.toLocaleTimeString()}</div>
 
                         { this.state.isBellEnabled && 
-                                <div>
-                                    Next Strike at: {this.state.futureDate.toLocaleTimeString()}
-                                </div> 
-                                
-                        }
-
-                        { !this.state.isBellEnabled && 
-                                <div>
-                                    Bell disabled
-                                </div> 
+                            <div>
+                                Next Strike at: {this.state.futureDate.toLocaleTimeString()}
+                            </div> 
                         }
                     </div>
                 }
 
                 { this.state.isBellEnabled && 
-                    <div>
+                    <div className='next-bell'>
                         {this.state.remaining}
                     </div>   
                 }
+                { !this.state.isBellEnabled && 
+                    <div className='next-bell'>
+                        Bell disabled
+                    </div> 
+                }
+
+                { !this.state.isBellEnabled && 
+                    <div >
+                        <div className="adv-options font-size-small"> 
+                            <div>Advanced Options:</div>
+                            <form onSubmit={this.props.handleSubmit}>
+                                <label>
+                                Minutes Between Bells: <input type="number" value={this.props.intervalValue} onChange={this.props.handleChange} />
+                                </label>
+                            </form> 
+                        </div>
+                    </div>
+                }
+
+
+
             </div>
         );
     }

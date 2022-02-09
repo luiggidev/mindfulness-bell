@@ -2,7 +2,6 @@
 import React, { useState, Component } from 'react';
 import './App.css';
 import Header from './components/Header';
-import AdvancedOptions from './components/AdvancedOptions';
 import Timer from './components/Timer';
 import Quotes from './components/Quotes';
 import Footer from './components/Footer';
@@ -11,10 +10,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '4'
+      value: '4',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
 
   handleChange(event) {
@@ -29,8 +29,12 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        {/* <AdvancedOptions intervalValue={this.state.value} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/> */}
-        <Timer intervalValue={this.state.value}/>
+        <Timer 
+          intervalValue={this.state.value} 
+          handleChange={this.handleChange} 
+          handleSubmit={this.handleSubmit}
+        />
+
         {/* <Quotes /> */}
         <Footer />
       </div>

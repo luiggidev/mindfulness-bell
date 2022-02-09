@@ -4,11 +4,11 @@ class Header extends Component {
     render() {
         return (
         <div>
-            <img
+            {/* <img
                 src="/images/buddhism.svg"
                 alt="buddhism symboll"
                 className="buddhism"
-            />
+            /> */}
             <h1>Mindfulness Bell</h1> 
         </div>
 
