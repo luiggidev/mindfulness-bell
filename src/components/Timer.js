@@ -138,11 +138,6 @@ class Timer extends Component {
                     </div>
                 }
 
-                { this.state.isBellEnabled && 
-                    <div className='next-bell'>
-                        {this.state.remaining}
-                    </div>   
-                }
                 { !this.state.isBellEnabled && 
                     <div className='next-bell'>
                         Bell disabled
@@ -152,12 +147,20 @@ class Timer extends Component {
                 { this.state.isBellEnabled && 
                     <div >
                         <div className="adv-options font-size-small"> 
-                            <div>Advanced Options:</div>
+                            <div class="text-xl	">Advanced Options:</div>
+                            <div className='next-bell'>
+                                {this.state.remaining}
+                            </div>   
                             <form onSubmit={this.props.handleSubmit}>
                                 <label>
                                 Minutes Between Bells: <input type="number" value={this.props.intervalValue} onChange={this.props.handleChange} />
                                 </label>
-                            </form> 
+                            </form>
+                            <div>Number of Short bells:</div>
+                            <div>Number of Long bells:</div>
+                            <div>Strike Bell button</div>
+
+
                         </div>
                     </div>
                 }
