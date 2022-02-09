@@ -7,6 +7,7 @@ Recurrent bell strikes to remain mindful/concentrated on the task at hand.
 ## Todo
 - Separate each CSS into each component file name
 - Use Tailwind CSS ?
+- Add Typescript support and refactor
 - Deactivate bell if advanced options are enabled ( For future date to be set correctly )
 - After that is tested for the basic example start incorporating the advanced features
 - Add round progress bar:
