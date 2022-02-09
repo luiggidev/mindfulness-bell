@@ -127,7 +127,7 @@ class Timer extends Component {
                 <div className="p-6">
                 <Buttons buttonState={this.state.isBellEnabled} handleButtonClick={this.handleButtonClick}/>
                     { !this.state.isBellEnabled && 
-                        <div className='w-96 mt-3'>
+                        <div className='w-64 mt-3'>
                             <div className='text-xl'>
                                 Bell disabled
                             </div> 
@@ -135,7 +135,7 @@ class Timer extends Component {
                     }
 
                     { this.state.isBellEnabled && 
-                        <div className="w-96 mt-3">
+                        <div className="w-64 mt-3">
                             <div class="text-xl">Advanced Options:</div>
                             <div className='next-bell'>
                                 {this.state.remaining}
