@@ -5,7 +5,6 @@
 Recurrent bell strikes to remain mindful/concentrated on the task at hand.
 
 ## Todo
-- fix button moving when on/off
 - Clean timer file
 - add the rest of the adv functions
 - Add Typescript support and refactor to be used with ReactJS.
