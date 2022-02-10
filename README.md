@@ -5,6 +5,7 @@
 Recurrent bell strikes to remain mindful/concentrated on the task at hand.
 
 ## Todo
+- Consider redux so we dont have to pass that many props alongs components
 - Add other bells, working with advanced options.
 - Disable tick function if bell is not activated? In theory the tick is used for intervals and if bell is disabled it should not run.
 - handleStartClick is being called twice on activating bell button
