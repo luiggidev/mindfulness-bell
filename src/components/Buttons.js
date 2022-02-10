@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ProgressBar from './ProgressBar';
 
 class Buttons extends Component {
     render() {
@@ -16,7 +15,6 @@ class Buttons extends Component {
                     </button>
                         
                     <div id="timer"></div>
-                    {/* <ProgressBar /> */}
                 </div>
         );
     }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AdvancedOptions from './AdvancedOptions';
 import Buttons from './Buttons';
 
 class Timer extends Component {
@@ -12,13 +13,12 @@ class Timer extends Component {
             Remaining: ''
         };
     }
-    
-    isDebug = true;
+
     bell = new Audio("bells/shortBell.mp3");
     bellLong = new Audio("bells/longBell.mp3");
 
     handleStartClick = () => {
-        if(this.isDebug) {
+        if(this.props.isDebug) {
             console.log('handleStartClick');
         }
 
@@ -30,7 +30,7 @@ class Timer extends Component {
     }
 
     handleEndClick = () => {
-        if(this.isDebug) {
+        if(this.props.isDebug) {
             console.log('handleEndClick');
         }
 
@@ -43,8 +43,8 @@ class Timer extends Component {
     }
 
     handleButtonClick = () => {
-        if(this.isDebug) {
-            console.log('handleStartClick');
+        if(this.props.isDebug) {
+            console.log('handleButtonClick');
         }
 
         if(this.state.isBellEnabled == false){
@@ -56,7 +56,7 @@ class Timer extends Component {
     }
 
     strikeBell() {
-        if(this.isDebug) {
+        if(this.props.isDebug) {
             console.log('strikeBell');
         }
         this.bell.play();
@@ -64,7 +64,7 @@ class Timer extends Component {
     }
 
     setFutureTime() {
-        if(this.isDebug) {
+        if(this.props.isDebug) {
             console.log('setFutureTime');
         }
         const future = new Date();
@@ -81,7 +81,7 @@ class Timer extends Component {
     }
 
     timeRemaining(now, future) {
-        if(this.isDebug) {
+        if(this.props.isDebug) {
             console.log('timeRemaining');
         }
         var remain = future - now;
@@ -106,7 +106,7 @@ class Timer extends Component {
     }
     
     tick() {
-        if(this.isDebug) {
+        if(this.props.isDebug) {
             console.log('tick');
         }
         
@@ -134,30 +134,23 @@ class Timer extends Component {
                             </div> 
                         </div> 
                     }
+                    { this.state.isBellEnabled &&  
+                        <AdvancedOptions
+                            remaining={this.state.remaining}
 
-                    { this.state.isBellEnabled && 
-                        <div className="w-64 mt-3">
-                            <div class="text-xl">Advanced Options:</div>
-                            <div className='next-bell'>
-                                {this.state.remaining}
-                            </div>   
-                            <form onSubmit={this.props.handleSubmit}>
-                                <label>
-                                    Minutes Between Bells: 
-                                    <input 
-                                        type="number" 
-                                        value={this.props.intervalValue} 
-                                        onChange={this.props.handleChange} 
-                                    />
-                                </label>
-                            </form>
-                            <div>Number of Short bells:</div>
-                            <div>Number of Long bells:</div>
-                            <button className="bg-white p-1">Strike Bell button</button>
-                        </div>
+                            intervalValue={this.props.intervalValue}
+                            shortBellValue={this.props.shortBellValue}
+                            longBellValue={this.props.longBellValue}
+
+                            handleIntervalChange={this.props.handleIntervalChange}
+                            handleShortBellChange={this.props.handleShortBellChange}
+                            handleLongBellChange={this.props.handleLongBellChange}
+
+                            handleSubmit={this.props.handleSubmit}
+                        />
                     }
 
-                    {   this.isDebug &&
+                    {   this.props.isDebug &&
                         <div>
                             <strong>Debug mode: {this.state.title} </strong>
                             <div>Current date: {this.state.date.toLocaleTimeString()}</div>

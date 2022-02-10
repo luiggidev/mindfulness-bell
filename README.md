@@ -5,6 +5,9 @@
 Recurrent bell strikes to remain mindful/concentrated on the task at hand.
 
 ## Todo
+- Add other bells, working with advanced options.
+- Disable tick function if bell is not activated? In theory the tick is used for intervals and if bell is disabled it should not run.
+- handleStartClick is being called twice on activating bell button
 - Dont let user set 0 as value
 - Clean timer file
 - Add Recoil to manage states

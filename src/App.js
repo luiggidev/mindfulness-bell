@@ -10,15 +10,38 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '4',
+      intervalValue: '6',
+      shortBellValue: '1',
+      longBellValue: '3',
+      isDebug: true
     };
-    this.handleChange = this.handleChange.bind(this);
+
+    this.handleIntervalChange = this.handleIntervalChange.bind(this);
+    this.handleShortBellChange = this.handleShortBellChange.bind(this);
+    this.handleLongBellChange = this.handleLongBellChange.bind(this);
+
     this.handleSubmit = this.handleSubmit.bind(this);
-    
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleIntervalChange(event) {
+    if(this.state.isDebug) {
+      console.log('handleIntervalChange: ', this.state.intervalValue);
+    }
+    this.setState({intervalValue: event.target.value});
+  }
+
+  handleShortBellChange(event) {
+    if(this.state.isDebug) {
+      console.log('handleShortBellChange: ', this.state.shortBellValue);
+    }
+    this.setState({shortBellValue: event.target.value});
+  }
+
+  handleLongBellChange(event) {
+    if(this.state.isDebug) {
+      console.log('handleLongBellChange: ', this.state.longBellValue);
+    }
+    this.setState({longBellValue: event.target.value});
   }
 
   handleSubmit(event) {
@@ -29,12 +52,21 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+
         <Timer 
-          intervalValue={this.state.value} 
-          handleChange={this.handleChange} 
+          intervalValue={this.state.intervalValue}
+          shortBellValue={this.state.shortBellValue}
+          longBellValue={this.state.longBellValue}
+
+          handleIntervalChange={this.handleIntervalChange} 
+          handleShortBellChange={this.handleShortBellChange} 
+          handleLongBellChange={this.handleLongBellChange} 
+
           handleSubmit={this.handleSubmit}
+          isDebug={this.state.isDebug}
         />
         {/* <Quotes /> */}
+
         <Footer />
       </div>
     );
