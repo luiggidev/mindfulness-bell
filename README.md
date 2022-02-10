@@ -5,14 +5,10 @@
 Recurrent bell strikes to remain mindful/concentrated on the task at hand.
 
 ## Todo
-- Consider redux so we dont have to pass that many props alongs components
+- Add Recoil to manage states
 - Add other bells, working with advanced options.
 - Disable tick function if bell is not activated? In theory the tick is used for intervals and if bell is disabled it should not run.
-- handleStartClick is being called twice on activating bell button
 - Dont let user set 0 as value
-- Clean timer file
-- Add Recoil to manage states
-- add the rest of the adv functions
 - Add Typescript support and refactor to be used with ReactJS.
 
 ### Maybe
