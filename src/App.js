@@ -34,7 +34,6 @@ class App extends Component {
           handleChange={this.handleChange} 
           handleSubmit={this.handleSubmit}
         />
-
         {/* <Quotes /> */}
         <Footer />
       </div>

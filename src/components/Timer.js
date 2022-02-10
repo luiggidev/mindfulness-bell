@@ -13,7 +13,7 @@ class Timer extends Component {
         };
     }
     
-    isDebug = false;
+    isDebug = true;
     bell = new Audio("bells/shortBell.mp3");
     bellLong = new Audio("bells/longBell.mp3");
 
@@ -126,6 +126,7 @@ class Timer extends Component {
             <div className="timer-wrapper flex justify-center ">
                 <div className="p-6">
                 <Buttons buttonState={this.state.isBellEnabled} handleButtonClick={this.handleButtonClick}/>
+                    
                     { !this.state.isBellEnabled && 
                         <div className='w-64 mt-3'>
                             <div className='text-xl'>
@@ -142,12 +143,17 @@ class Timer extends Component {
                             </div>   
                             <form onSubmit={this.props.handleSubmit}>
                                 <label>
-                                Minutes Between Bells: <input type="number" value={this.props.intervalValue} onChange={this.props.handleChange} />
+                                    Minutes Between Bells: 
+                                    <input 
+                                        type="number" 
+                                        value={this.props.intervalValue} 
+                                        onChange={this.props.handleChange} 
+                                    />
                                 </label>
                             </form>
                             <div>Number of Short bells:</div>
                             <div>Number of Long bells:</div>
-                            <div>Strike Bell button</div>
+                            <button className="bg-white p-1">Strike Bell button</button>
                         </div>
                     }
 

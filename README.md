@@ -5,6 +5,7 @@
 Recurrent bell strikes to remain mindful/concentrated on the task at hand.
 
 ## Todo
+- Dont let user set 0 as value
 - Clean timer file
 - Add Recoil to manage states
 - add the rest of the adv functions
