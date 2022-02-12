@@ -5,10 +5,10 @@
 Recurrent bell strikes to remain mindful/concentrated on the task at hand.
 
 ## Todo
-- Add Recoil to manage states
+- Add Recoil to manage states.
 - Add other bells, working with advanced options.
 - Disable tick function if bell is not activated? In theory the tick is used for intervals and if bell is disabled it should not run.
-- Dont let user set 0 as value
+- Dont let user set 0 as value.
 - Add Typescript support and refactor to be used with ReactJS.
 
 ### Maybe
